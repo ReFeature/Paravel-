@@ -8,4 +8,15 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::get('/register');
+Route::post('/register', 'RegisterController@register');
+
+
+Route::apiResources([
+    '' => '',
+    'posts' => 'PostController'
+]);
+
+
+Route::get('/ye', function () {
+    return App\Post::all();
+});
